@@ -1,10 +1,12 @@
-class Node:
+from binarytree import Node
+
+class AndXorNode:
     def __init__(self, parent, andGate=False, left=None, right=None, id=None, cost=0):
+        Node.__init__(self, id)
         self.parent = parent
         self.andGate = andGate
         self.left = left
         self.right = right
-        self.id = id
         self.cost = cost
 
     def isLeafNode(self):
@@ -42,3 +44,5 @@ class Node:
     def setRight(self, rightNode):
         self.right = rightNode
 
+    def __str__(self):
+        return Node.__str__(self)

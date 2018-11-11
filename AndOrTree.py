@@ -1,4 +1,4 @@
-from Node import Node
+from AndXorNode import Node
 from copy import deepcopy
 
 class AndOrTree:
