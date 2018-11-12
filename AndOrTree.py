@@ -20,10 +20,16 @@ class AndOrTree:
             allDeepLeafs = self.getDeepLeafNodes(node)
             for leafNode in allDeepLeafs:
                 deepCopyForLeafNode = deepcopy(node)
+                deepCopyForLeafNode.andGate = False
+                node.andGate = False
                 deepCopyForLeafNode.setParent(leafNode)
-                leafNode.attachChildNode(deepcopy(node))
-        self.normalize(node.left)
-        self.normalize(node.right)
+                leafNode.attachChildNode(deepCopyForLeafNode)
+
+        if node.left != None:
+            self.normalize(node.left)
+        if node.right != None:
+            self.normalize(node.right)
+
 
 
     def getDeepLeafNodes(self, node):

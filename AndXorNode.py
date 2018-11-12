@@ -27,10 +27,10 @@ class AndXorNode:
     def getRight(self):
         return self.right
 
-    def attachChildNode(self, node, left=True):
+    def attachChildNode(self, node):
         if node == None:
             return False
-        if left:
+        if self.left == None:
             self.left = node
         else:
             self.right = node

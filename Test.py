@@ -8,11 +8,11 @@ optional3 = AndXorNode(None, False, None, None, 4, 7)
 
 and1 = AndXorNode(None, True, None, None, 5, 2)
 
-leaf1 = AndXorNode(None, False, None, None, 6, 142)
-leaf2 = AndXorNode(None, False, None, None, 7, 152)
-leaf3 = AndXorNode(None, False, None, None, 8, 172)
-leaf4 = AndXorNode(None, False, None, None, 9, 192)
-leaf5 = AndXorNode(None, False, None, None, 10, 142)
+leaf1 = AndXorNode(None, False, None, None, 21, 142)
+leaf2 = AndXorNode(None, False, None, None, 22, 152)
+leaf3 = AndXorNode(None, False, None, None, 23, 172)
+leaf4 = AndXorNode(None, False, None, None, 24, 192)
+leaf5 = AndXorNode(None, False, None, None, 25, 142)
 
 rootNode.setLeft(optional1)
 rootNode.setRight(optional2)
@@ -28,6 +28,18 @@ and1.right = leaf3
 
 tree1 = AndOrTree(rootNode)
 
+
+
+
+rn = tree1.getRootNode()
+print('Tree, before normalizing')
+print('Number of leaf nodes:')
 print(len(tree1.getDeepLeafNodes(tree1.getRootNode())))
+
 print(tree1.getRootNode())
-# print(tree1.normalize(tree1.getRootNode()))
+print('###########################')
+print('Tree, after normalizing')
+tree1.normalize(tree1.getRootNode())
+print(tree1.getRootNode())
+print('Number of leaf nodes:')
+print(len(tree1.getDeepLeafNodes(tree1.getRootNode())))
