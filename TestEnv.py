@@ -1,23 +1,24 @@
 from AndXOrTree import AndXOrTree
 from AndXorNode import AndXorNode
 from copy import deepcopy
+from random import randint
 
 class Env:
     def __init__(self):
-        self.rootNode = AndXorNode(None, False, None, None, 1, 12)
-        self.optional1 = AndXorNode(None, False, None, None, 2, 5)
-        self.optional2 = AndXorNode(None, False, None, None, 3, 6)
-        self.and2 = AndXorNode(None, True, None, None, 5, 8)
-        self.optional5 = AndXorNode(None, False, None, None, 6, 11)
-        self.optional6 = AndXorNode(None, False, None, None, 7, 9)
+        self.rootNode = AndXorNode(None, False, None, None, 1, 12, 0)
+        self.optional1 = AndXorNode(None, False, None, None, 2, 5, 1)
+        self.optional2 = AndXorNode(None, False, None, None, 3, 6, 2)
+        self.and2 = AndXorNode(None, True, None, None, 5, 8, 3)
+        self.optional5 = AndXorNode(None, False, None, None, 6, 11, 4)
+        self.optional6 = AndXorNode(None, False, None, None, 7, 9, 5)
 
-        self.and1 = AndXorNode(None, True, None, None, 11, 2)
+        self.and1 = AndXorNode(None, True, None, None, 11, 2, 6)
 
-        self.leaf1 = AndXorNode(None, False, None, None, 21, 142)
-        self.leaf2 = AndXorNode(None, False, None, None, 22, 152)
-        self.leaf3 = AndXorNode(None, False, None, None, 23, 172)
-        self.leaf4 = AndXorNode(None, False, None, None, 24, 192)
-        self.leaf5 = AndXorNode(None, False, None, None, 25, 142)
+        self.leaf1 = AndXorNode(None, False, None, None, 21, 142, 7)
+        self.leaf2 = AndXorNode(None, False, None, None, 22, 152, 8)
+        self.leaf3 = AndXorNode(None, False, None, None, 23, 172, 9)
+        self.leaf4 = AndXorNode(None, False, None, None, 24, 192, 10)
+        self.leaf5 = AndXorNode(None, False, None, None, 25, 142, 11)
 
         self.rootNode.setLeft(self.optional1)
         self.rootNode.setRight(self.optional2)
@@ -51,6 +52,42 @@ class Env:
         self.treeBeforeNormalizing = deepcopy(self.tree1)
         self.tree1.normalize(self.tree1.getRootNode())
         self.normalizedtree = self.tree1
+        self.position = self.rootNode
+
+    def stepInDirection(self, goLeft=True):
+        return self.step(goLeft)
+
+    def stepInRandomDirection(self):
+        randomNumber = randint(0, 100)
+        if(randomNumber > 50):
+            return self.step(True)
+        else:
+            return self.step(False)
+
+    def step(self, goLeft):
+        done = False
+        reward = 0
+        next_state = None
+        info = None
+
+        if goLeft:
+            next_state = self.position.left
+            info = 0
+        else:
+            next_state = self.position.right
+            info = 1
+
+        if next_state == None or next_state.isLeafNode():
+           done = True
+
+        reward = next_state.value - next_state.cost
+        self.position = next_state
+
+        return (next_state, reward, done, info)
+
+    def reset(self):
+        self.position = self.rootNode
+        return self.position
 
 if __name__ == '__main__':
     env = Env()
