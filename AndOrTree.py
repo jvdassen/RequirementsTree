@@ -23,7 +23,12 @@ class AndOrTree:
                 deepCopyForLeafNode.andGate = False
                 node.andGate = False
                 deepCopyForLeafNode.setParent(leafNode)
-                leafNode.attachChildNode(deepCopyForLeafNode)
+
+                if leafNode.value != deepCopyForLeafNode.left.value and self.valueExistsInSomeParent(node, deepCopyForLeafNode.left.value):
+                    leafNode.left = deepCopyForLeafNode.left
+
+                if leafNode.value != deepCopyForLeafNode.right.value:
+                    leafNode.right = deepCopyForLeafNode.right
 
         if node.left != None:
             self.normalize(node.left)
