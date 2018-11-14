@@ -54,3 +54,11 @@ class AndOrTree:
 
         return leafnodes
 
+    def valueExistsInSomeParent(self, node, value):
+        if node.parent == None:
+            return False
+        if node.value == value:
+            return True
+        else:
+            return self.valueExistsInSomeParent(node.parent)
+
