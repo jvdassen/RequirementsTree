@@ -1,13 +1,14 @@
 from binarytree import Node
 
 class AndXorNode:
-    def __init__(self, parent, andGate=False, left=None, right=None, id=None, cost=0):
-        Node.__init__(self, id)
+    def __init__(self, parent, andGate=False, left=None, right=None, value=None, cost=0, id=0):
+        Node.__init__(self, value)
         self.parent = parent
         self.andGate = andGate
         self.left = left
         self.right = right
         self.cost = cost
+        self.id = id
 
     def isLeafNode(self):
         return self.left == None and self.right == None
