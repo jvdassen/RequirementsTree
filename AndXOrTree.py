@@ -1,7 +1,7 @@
 from AndXorNode import Node
 from copy import deepcopy
 
-class AndOrTree:
+class AndXOrTree:
     """"A class that represents a requirements tree, where each non-leaf node can be AND or OR"""
     def __init__(self, rootNode=None):
         self.rootNode = rootNode
@@ -18,17 +18,13 @@ class AndOrTree:
         if node.isAndGate():
             """ get all leaf nodes from one side and mount deep copies of the node as new child """
             allDeepLeafs = self.getDeepLeafNodes(node)
+            deepCopyForLeafNode = deepcopy(node)
+            deepCopyForLeafNode.andGate = False
+            node.andGate = False
+
             for leafNode in allDeepLeafs:
-                deepCopyForLeafNode = deepcopy(node)
-                deepCopyForLeafNode.andGate = False
-                node.andGate = False
                 deepCopyForLeafNode.setParent(leafNode)
-
-                if leafNode.value != deepCopyForLeafNode.left.value and self.valueExistsInSomeParent(node, deepCopyForLeafNode.left.value):
-                    leafNode.left = deepCopyForLeafNode.left
-
-                if leafNode.value != deepCopyForLeafNode.right.value:
-                    leafNode.right = deepCopyForLeafNode.right
+                leafNode.left = deepCopyForLeafNode
 
         if node.left != None:
             self.normalize(node.left)
@@ -54,11 +50,30 @@ class AndOrTree:
 
         return leafnodes
 
+    def getAllLowerNodes(self, node):
+        nodes = []
+
+        def getchildren( node):
+            nodes.append(node)
+            if node.left != None:
+                getchildren(node.left)
+            if node.right != None:
+                getchildren(node.right)
+
+        getchildren(self.getRootNode())
+        return nodes
+
+    def getNumberOfLeafNodes(self):
+        return len(self.getDeepLeafNodes(self.getRootNode()))
+
+    def getNumberOfNodes(self):
+        return len(self.getAllLowerNodes(self.getRootNode()))
+
     def valueExistsInSomeParent(self, node, value):
         if node.parent == None:
             return False
         if node.value == value:
             return True
         else:
-            return self.valueExistsInSomeParent(node.parent)
+            return self.valueExistsInSomeParent(node.parent, value)
 
