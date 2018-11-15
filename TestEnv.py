@@ -70,14 +70,22 @@ class Env:
         next_state = None
         info = None
 
-        if goLeft:
+        if goLeft and self.position.left != None:
             next_state = self.position.left
             info = 0
-        else:
+
+        elif goLeft and self.position.right != None:
             next_state = self.position.right
             info = 1
 
-        if next_state == None or next_state.isLeafNode():
+        if not goLeft and self.position.right != None:
+            next_state = self.position.right
+            info = 1
+        elif not goLeft and self.position.left != None:
+            next_state = self.position.left
+            info = 0
+
+        if next_state.isLeafNode():
            done = True
 
         reward = next_state.value - next_state.cost

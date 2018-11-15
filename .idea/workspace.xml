@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/TestEnv.py" line="76" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a7c7eafe-5810-40ca-9c13-d7e94c64bd6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/QLearningAgent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndXOrTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/AndXOrTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndXorNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/AndXorNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QLearningAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/QLearningAgent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestEnv.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,27 +113,46 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1445561216">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="614" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="614" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestEnv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+            <state relative-caret-position="369">
+              <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
-                <marker date="1542232385151" expanded="true" signature="156:161" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/QLearningAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state relative-caret-position="745">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -144,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="1661" lean-forward="true" selection-start-line="1661" selection-end-line="1661" />
+            <state relative-caret-position="24915">
+              <caret line="1661" selection-start-line="1661" selection-end-line="1661" />
             </state>
           </provider>
         </entry>
@@ -153,11 +172,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndXOrTree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+            <state relative-caret-position="570">
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1542232124034" expanded="true" signature="1579:1588" ph="..." />
               </folding>
             </state>
           </provider>
@@ -167,7 +185,7 @@
         <entry file="file://$PROJECT_DIR$/AndXorNode.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -203,10 +221,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="width" value="1920" />
-    <option name="height" value="1062" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -228,7 +246,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Test.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -370,20 +388,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1062" extended-state="0" />
-    <editor active="true" />
+    <frame x="960" y="0" width="960" height="1032" extended-state="4" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14722955" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29775882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="1" sideWeight="0.49920845" weight="0.46113446" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49920845" weight="0.32878152" />
+      <window_info anchor="bottom" id="Python Console" order="1" sideWeight="0.49920845" weight="0.4606866" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49920845" weight="0.32779622" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50184697" side_tool="true" weight="0.32983193" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49815303" weight="0.32983193" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49815303" weight="0.4527311" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49815303" weight="0.34108528" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49815303" weight="0.45182723" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.329602" />
@@ -399,9 +416,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestEnv.py</url>
-          <line>80</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/QLearningAgent.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/QLearningAgent.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -426,28 +448,17 @@
     <entry file="file://$PROJECT_DIR$/AndOrTree.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="1661" lean-forward="true" selection-start-line="1661" selection-end-line="1661" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QLearningAgent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="24915">
+          <caret line="1661" selection-start-line="1661" selection-end-line="1661" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndXOrTree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="570">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <marker date="1542232124034" expanded="true" signature="1579:1588" ph="..." />
           </folding>
         </state>
       </provider>
@@ -455,17 +466,26 @@
     <entry file="file://$PROJECT_DIR$/AndXorNode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestEnv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+        <state relative-caret-position="369">
+          <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-            <marker date="1542232385151" expanded="true" signature="156:161" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QLearningAgent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
