@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     for i in range(1, number_of_episodes):
         state = environment.reset()
+        visited_states = []
 
         epochs, penalties, reward = 0, 0, 0
         done = False
@@ -29,18 +30,22 @@ if __name__ == '__main__':
                 next_state, reward, done, info = environment.stepInDirection(goLeft)
 
             action_taken = info
-            old_val = q_table[state.id, action_taken]
-            next_max = numpy.max(q_table[next_state.id])
 
-            new_val = (1 - alpha) * old_val + alpha * (reward + gamma * next_max)
-            q_table[state.id, action_taken] = new_val
+            if not next_state.id in visited_states:
+
+                old_val = q_table[state.id, action_taken]
+                next_max = numpy.max(q_table[next_state.id])
+
+                new_val = (1 - alpha) * old_val + alpha * (reward + gamma * next_max)
+                q_table[state.id, action_taken] = new_val
 
             state = next_state
             epochs += 1
 
-        print('Q table after' + str(i) + ' episodes')
-        print(q_table)
 
         if i % 100 == 0:
+            print('Q table after' + str(i) + ' episodes')
             print(q_table)
+            print(environment.normalizedtree.getRootNode())
 
+lrlrl
