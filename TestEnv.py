@@ -6,7 +6,7 @@ from random import randint
 class Env:
     def __init__(self):
         self.rootNode = AndXorNode(None, False, None, None, 1, 12, 0)
-        self.optional1 = AndXorNode(None, False, None, None, 2, 5, 1)
+        self.optional1 = AndXorNode(None, False, None, None, 200, 5, 1)
         self.optional2 = AndXorNode(None, False, None, None, 3, 6, 2)
         self.and2 = AndXorNode(None, True, None, None, 5, 8, 3)
         self.optional5 = AndXorNode(None, False, None, None, 6, 11, 4)
@@ -14,10 +14,10 @@ class Env:
 
         self.and1 = AndXorNode(None, True, None, None, 11, 2, 6)
 
-        self.leaf1 = AndXorNode(None, False, None, None, 21, 142, 7)
+        self.leaf1 = AndXorNode(None, False, None, None, 200, 142, 7)
         self.leaf2 = AndXorNode(None, False, None, None, 22, 152, 8)
         self.leaf3 = AndXorNode(None, False, None, None, 23, 172, 9)
-        self.leaf4 = AndXorNode(None, False, None, None, 24, 192, 10)
+        self.leaf4 = AndXorNode(None, False, None, None, 2000, 192, 10)
         self.leaf5 = AndXorNode(None, False, None, None, 25, 142, 11)
 
         self.rootNode.setLeft(self.optional1)

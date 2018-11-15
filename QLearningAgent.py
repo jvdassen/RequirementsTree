@@ -48,4 +48,3 @@ if __name__ == '__main__':
             print(q_table)
             print(environment.normalizedtree.getRootNode())
 
-lrlrl
