@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 Run the Q-learning agent:
 ```
-python3 QLearningAgent.py
+python QLearningAgent.py
 ```
 
 ## Idea
