@@ -1,4 +1,4 @@
-from TestEnv import Env
+from Environment import Env
 import random
 import numpy
 from AndXorNode import AndXorNode
@@ -18,9 +18,10 @@ def printOptimalSubTree(q_table, tree):
         else:
             temp = startNode.right
 
-        resultLeaf.left = AndXorNode(temp.parent, temp.andGate, None, None, temp.value, temp.cost, temp.getId())
-        rewards.append(temp.value - temp.cost)
-        resultLeaf = resultLeaf.left
+        if not tree.requirementExistsInSomeParent(resultLeaf, temp.getId()):
+            resultLeaf.left = AndXorNode(temp.parent, temp.andGate, None, None, temp.value, temp.cost, temp.getId())
+            rewards.append(temp.value - temp.cost)
+            resultLeaf = resultLeaf.left
 
         if not temp.isLeafNode():
             addNextStep(temp, resultLeaf)
@@ -55,7 +56,7 @@ if __name__ == '__main__':
             if random.uniform(0, 1) < epsilon:
                 next_state, reward, done, info = environment.stepInRandomDirection()
             else:
-                best_action = numpy.argmax(q_table[state.getId()])
+                best_action = numpy.argmax(q_table[state.nodeid])
                 goLeft = best_action == 0
 
                 next_state, reward, done, info = environment.stepInDirection(goLeft)
@@ -64,11 +65,11 @@ if __name__ == '__main__':
 
             if next_state.getId() not in visited_states:
 
-                old_val = q_table[state.getId(), action_taken]
-                next_max = numpy.max(q_table[next_state.getId()])
+                old_val = q_table[state.nodeid, action_taken]
+                next_max = numpy.max(q_table[next_state.nodeid])
 
                 new_val = (1 - alpha) * old_val + alpha * (reward + gamma * next_max)
-                q_table[state.getId(), action_taken] = new_val
+                q_table[state.nodeid, action_taken] = new_val
                 visited_states.append(next_state.getId())
 
             state = next_state
@@ -78,7 +79,7 @@ if __name__ == '__main__':
             print('Q table after' + str(i) + ' episodes')
             print(q_table)
             nodes = environment.normalizedtree.getAllLowerNodes(environment.normalizedtree.getRootNode())
-            print('Lookup table for nodes in the q_table. Each row of the q_table corresponds to the id of a node. In the visual graph, only the values of the nodes are displayed.')
+            print('Lookup table for nodes in the q_table. Each row of the q_table corresponds to the nodeid of a node. In the visual graph, only the values of the nodes are displayed.')
             for index, node in enumerate(nodes):
                 print(str(index) + ': ' + node.__repr__() + '\n')
             print(environment.normalizedtree.getRootNode())

@@ -50,7 +50,8 @@ class Env:
 
         self.tree1 = AndXOrTree(self.rootNode)
         self.treeBeforeNormalizing = deepcopy(self.tree1)
-        # self.tree1.normalize(self.tree1.getRootNode())
+        self.tree1.normalize(self.tree1.getRootNode())
+        self.tree1.regenerateNodeIds(self.tree1.getRootNode())
         self.normalizedtree = self.tree1
         self.position = self.rootNode
 

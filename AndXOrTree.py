@@ -69,18 +69,22 @@ class AndXOrTree:
     def getNumberOfNodes(self):
         return len(self.getAllLowerNodes(self.getRootNode()))
 
-    def valueExistsInSomeParent(self, node, value):
+    def requirementExistsInSomeParent(self, node, requirementid):
         if node.parent == None:
             return False
-        if node.value == value:
+        if node.getId() == requirementid:
             return True
         else:
-            return self.valueExistsInSomeParent(node.parent, value)
+            return self.requirementExistsInSomeParent(node.parent, requirementid)
 
     def regenerateNodeIds(self, node):
-        if node != None:
-            node.regenerateNodeId()
-            self.regenerateNodeIds(node.left)
-            self.regenerateNodeIds(node.right)
-        else:
-            return
+        counter = [0]
+        def processChildren(node):
+            if node != None:
+                node.setNodeId(counter[0])
+                counter[0] += 1
+                processChildren(node.left)
+                processChildren(node.right)
+            else:
+                return
+        processChildren(node)
