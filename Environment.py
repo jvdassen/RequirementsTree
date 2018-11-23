@@ -1,4 +1,4 @@
-from AndXOrTree import AndXOrTree
+from AndXorTree import AndXOrTree
 from AndXorNode import AndXorNode
 from copy import deepcopy
 from random import randint
