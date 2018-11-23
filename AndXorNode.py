@@ -8,7 +8,8 @@ class AndXorNode:
         self.left = left
         self.right = right
         self.cost = cost
-        self.id = id
+        self.requirementid = id
+        self.nodeid = uuid4().hex
 
     def isLeafNode(self):
         return self.left == None and self.right == None
@@ -20,7 +21,7 @@ class AndXorNode:
         return self.cost
 
     def getId(self):
-        return self.id
+        return self.requirementid
 
     def getLeft(self):
         return self.left

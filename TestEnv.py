@@ -16,7 +16,7 @@ class Env:
 
         self.leaf1 = AndXorNode(None, False, None, None, 200, 142, 7)
         self.leaf2 = AndXorNode(None, False, None, None, 22, 152, 8)
-        self.leaf3 = AndXorNode(None, False, None, None, 23, 172, 9)
+        self.leaf3 = AndXorNode(None, False, None, None, 120, 172, 9)
         self.leaf4 = AndXorNode(None, False, None, None, 2000, 192, 10)
         self.leaf5 = AndXorNode(None, False, None, None, 25, 142, 11)
 
@@ -50,7 +50,7 @@ class Env:
 
         self.tree1 = AndXOrTree(self.rootNode)
         self.treeBeforeNormalizing = deepcopy(self.tree1)
-        self.tree1.normalize(self.tree1.getRootNode())
+        # self.tree1.normalize(self.tree1.getRootNode())
         self.normalizedtree = self.tree1
         self.position = self.rootNode
 
