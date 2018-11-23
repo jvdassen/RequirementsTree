@@ -1,4 +1,5 @@
 from binarytree import Node
+from uuid import uuid4
 
 class AndXorNode:
     def __init__(self, parent, andGate=False, left=None, right=None, value=None, cost=0, id=0):
@@ -46,5 +47,11 @@ class AndXorNode:
     def setRight(self, rightNode):
         self.right = rightNode
 
+    def regenerateNodeId(self):
+        self.nodeid = uuid4().hex
+
     def __str__(self):
         return Node.__str__(self)
+
+    def __repr__(self):
+        return 'Node {id:'+ str(self.getId()) + ', value:' + str(self.value) + ', cost:' + str(self.cost) +'}'

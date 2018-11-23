@@ -31,7 +31,7 @@ class AndXOrTree:
         if node.right != None:
             self.normalize(node.right)
 
-
+        self.regenerateNodeIds(self.getRootNode())
 
     def getDeepLeafNodes(self, node):
         leafnodes = []
@@ -77,3 +77,10 @@ class AndXOrTree:
         else:
             return self.valueExistsInSomeParent(node.parent, value)
 
+    def regenerateNodeIds(self, node):
+        if node != None:
+            node.regenerateNodeId()
+            self.regenerateNodeIds(node.left)
+            self.regenerateNodeIds(node.right)
+        else:
+            return
