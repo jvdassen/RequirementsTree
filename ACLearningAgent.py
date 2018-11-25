@@ -1,5 +1,6 @@
 from Environment import Env
 import numpy
+import random
 from AndXorNode import AndXorNode
 
 
@@ -24,9 +25,10 @@ if __name__ == '__main__':
     gamma = 0.99
     epsilon = 0.01
 
-    number_of_episodes = 100000
+    number_of_episodes = 10000
 
-    state_action_pairs = numpy.zeros([environment.normalizedtree.getNumberOfNodes(), 2])
+    #state_action_pairs = numpy.zeros([environment.normalizedtree.getNumberOfNodes(), 2])
+    state_action_pairs = numpy.full((environment.normalizedtree.getNumberOfNodes(), 2), 0.5)
     utility_matrix = numpy.zeros([environment.normalizedtree.getNumberOfNodes()])
 
     softmax = lambda vals: numpy.exp(vals- numpy.max(vals)) / numpy.sum(numpy.exp(vals - numpy.max(vals)))
@@ -42,8 +44,13 @@ if __name__ == '__main__':
             action_array = state_action_pairs[state.nodeid]
             action_distribution = softmax(action_array)
 
-            #action = numpy.random.choice(2, 1, p=action_distribution)[0]
-            action = numpy.random.choice(2, 1)[0]
+            if random.uniform(0, 1) < epsilon:
+                action = numpy.random.choice(2, 1)[0]
+            else:
+                action = numpy.random.choice(2, 1, p=action_distribution)[0]
+
+            if i % 1000 == 0:
+                print()
 
             goLeft = action == 0
             next_state, reward, done, info = environment.stepInDirection(goLeft)
