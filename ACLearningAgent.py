@@ -34,7 +34,7 @@ if __name__ == '__main__':
     softmax = lambda vals: numpy.exp(vals- numpy.max(vals)) / numpy.sum(numpy.exp(vals - numpy.max(vals)))
 
     for i in range(1, number_of_episodes):
-        state = environment.reset()
+        state = environment.reset(randomStart=True)
         visited_states = []
 
         penalties, reward = 0, 0
@@ -44,10 +44,7 @@ if __name__ == '__main__':
             action_array = state_action_pairs[state.nodeid]
             action_distribution = softmax(action_array)
 
-            if random.uniform(0, 1) < epsilon:
-                action = numpy.random.choice(2, 1)[0]
-            else:
-                action = numpy.random.choice(2, 1, p=action_distribution)[0]
+            action = numpy.random.choice(2, 1, p=action_distribution)[0]
 
             if i % 1000 == 0:
                 print()
@@ -79,6 +76,7 @@ if __name__ == '__main__':
 
     print('Learning from ' + str(i) + ' episodes completed. Result:')
     print(utility_matrix)
+    print(state_action_pairs)
 
     #printOptimalSubTree(state_action_pairs, environment.normalizedtree)
 

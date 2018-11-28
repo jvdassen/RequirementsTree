@@ -2,6 +2,7 @@ from AndXorTree import AndXOrTree
 from AndXorNode import AndXorNode
 from copy import deepcopy
 from random import randint
+from numpy import random
 
 class Env:
     def __init__(self):
@@ -94,8 +95,21 @@ class Env:
 
         return (next_state, reward, done, info)
 
-    def reset(self):
-        self.position = self.rootNode
+    def reset(self, randomStart=False):
+        initialPosition = None
+        if randomStart:
+            pickRandomNode = lambda : random.choice(self.normalizedtree.getAllLowerNodes(self.normalizedtree.getRootNode()))
+
+            pickedNode = pickRandomNode()
+            while pickedNode.isLeafNode():
+                pickedNode = pickRandomNode()
+
+            initialPosition = pickedNode
+        else:
+            initialPosition = self.rootNode
+
+        self.position = initialPosition
+
         return self.position
 
 if __name__ == '__main__':
