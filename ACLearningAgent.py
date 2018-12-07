@@ -44,10 +44,11 @@ if __name__ == '__main__':
             action_array = state_action_pairs[state.nodeid]
             action_distribution = softmax(action_array)
 
-            if random.uniform(0, 1) < epsilon:
-                action = numpy.random.choice(2, 1)[0]
-            else:
-                action = numpy.random.choice(2, 1, p=action_distribution)[0]
+            #if random.uniform(0, 1) < epsilon:
+            #    action = numpy.random.choice(2, 1)[0]
+            #else:
+            action = numpy.random.choice(2, 1, p=action_distribution)
+            action = action[0]
 
             if i % 1000 == 0:
                 print()
@@ -79,6 +80,9 @@ if __name__ == '__main__':
 
     print('Learning from ' + str(i) + ' episodes completed. Result:')
     print(utility_matrix)
+    print('Probability matrix:', state_action_pairs)
+    for i, tuple in enumerate(state_action_pairs):
+        print('Index ' + str(i) + ' sum: ' + str(tuple[0]+tuple[1]))
 
     #printOptimalSubTree(state_action_pairs, environment.normalizedtree)
 
