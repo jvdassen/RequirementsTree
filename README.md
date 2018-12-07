@@ -20,10 +20,22 @@ Fetch the dependencies:
 pip install -r requirements.txt
 ```
 
+## Running an agent
+
+### Q-Learning
+
 Run the Q-learning agent:
 ```
 python QLearningAgent.py
 ```
+
+### Actor-critic learning
+
+Run the AC-learning agent:
+```
+python ACLearningAgent.py
+```
+
 
 ## Idea
 
