@@ -1,10 +1,7 @@
-from Environment import Env
 import numpy
-import random
-from AndXorNode import AndXorNode
+from Environment import Env
 
-
-def update_critic(utility_matrix, state, next_state, reward, alpha, gamma):
+def updateCritic(utility_matrix, state, next_state, reward, alpha, gamma):
     utility = utility_matrix[state]
     utility_next = utility_matrix[next_state]
     delta = reward + gamma * utility_next - utility
@@ -12,7 +9,7 @@ def update_critic(utility_matrix, state, next_state, reward, alpha, gamma):
 
     return utility_matrix, delta
 
-def update_actor(state_action_matrix, state, action, delta):
+def updateActor(state_action_matrix, state, action, delta):
     beta = 1
     state_action_matrix[state, action] += beta * delta
 
@@ -27,7 +24,6 @@ if __name__ == '__main__':
 
     number_of_episodes = 10000
 
-    #state_action_pairs = numpy.zeros([environment.normalizedtree.getNumberOfNodes(), 2])
     state_action_pairs = numpy.full((environment.normalizedtree.getNumberOfNodes(), 2), 0.5)
     utility_matrix = numpy.zeros([environment.normalizedtree.getNumberOfNodes()])
 
@@ -54,8 +50,8 @@ if __name__ == '__main__':
             action_taken = info
 
             if next_state.nodeid not in visited_states:
-                utility_matrix, delta = update_critic(utility_matrix, state.nodeid, next_state.nodeid, reward, gamma, alpha)
-                state_action_pairs = update_actor(state_action_pairs, state.nodeid, action_taken, delta)
+                utility_matrix, delta = updateCritic(utility_matrix, state.nodeid, next_state.nodeid, reward, gamma, alpha)
+                state_action_pairs = updateActor(state_action_pairs, state.nodeid, action_taken, delta)
 
             if done:
                 # Manually update the utilites corresponding to a leaf node with value - cost
@@ -75,9 +71,7 @@ if __name__ == '__main__':
             print(environment.normalizedtree.getRootNode())
 
     print('Learning from ' + str(i) + ' episodes completed. Result:')
-    print(utility_matrix)
-    print('Probability matrix:', state_action_pairs)
-    for i, tuple in enumerate(state_action_pairs):
-        print('Index ' + str(i) + ' sum: ' + str(tuple[0]+tuple[1]))
+    print('Utility matrix:\n', utility_matrix)
+    print('Probability matrix:\n', state_action_pairs)
 
     #printOptimalSubTree(state_action_pairs, environment.normalizedtree)

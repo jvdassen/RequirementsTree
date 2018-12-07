@@ -1,7 +1,7 @@
-from Environment import Env
 import random
 import numpy
 from AndXorNode import AndXorNode
+from Environment import Env
 
 def printOptimalSubTree(q_table, tree):
     root = tree.getRootNode()
