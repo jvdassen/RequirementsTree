@@ -19,6 +19,7 @@ Fetch the dependencies:
 ```
 pip install -r requirements.txt
 ```
+> The dependencies that the project uses are also attached in the dependencies folder for completeness.
 
 ## Running an agent
 
