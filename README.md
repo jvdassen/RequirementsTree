@@ -19,7 +19,7 @@ Fetch the dependencies:
 ```
 pip install -r requirements.txt
 ```
-> The dependencies that the project uses are also attached in the dependencies folder for completeness.
+> The dependencies that the project uses are also attached locally in 'venv/lib/python3.7/site-packages' folder for completeness.
 
 ## Running an agent
 
@@ -36,9 +36,3 @@ Run the AC-learning agent:
 ```
 python ACLearningAgent.py
 ```
-
-
-## Idea
-
-In the requirements graph, each requirement can have one or two dependent requirements. The type of dependency is either `AND` or `OR`. `AND` means that to implement the parent requirement both children need to be implemented. `OR` means that the parent requirement can be implemented by imlpementing on of the alternative children. Each requirement has a cost and value associated with it.
-
